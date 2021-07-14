@@ -4,33 +4,39 @@ pipeline{
 
 // uncomment the following lines by removing /* and */ to enable
     tools{
-       nodejs 'nodejs' 
+       nodejs ‘nodejs’
     }
-    
 
     stages{
-        stage('build'){
+        stage(‘build’){
             steps{
-                sh 'npm install'
+                echo 'this is the build job'
+                sh ’npm install’
+                
             }
         }
-        stage('test'){
+        stage(‘test’){
             steps{
-                sh 'npm test'
+                echo 'this is the test job'
+                sh ’npm test’
+                
             }
         }
-        stage('package'){
+        stage(‘package’){
             steps{
-                sh 'npm run package'
+                echo 'this is the package job'
+                sh ’npm run package’
+                
             }
         }
     }
     
     post{
         always{
-            echo 'this pipeline is for shopping-portal application...'
+            echo 'this pipeline has completed...'
         }
         
     }
     
 }
+
